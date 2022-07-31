@@ -29,7 +29,7 @@ jobs:
           GITHUB_REPOSITORY_OWNER: "${{ github.repository_owner }}"
           GITHUB_COMMIT_MESSAGE: "${{ github.event.head_commit.message }}"
           GITHUB_PAYLOAD_MESSAGE: "${{ github.event.client_payload.message }}"
-          GITHUB_WORKFLOW_URL: "lllll"
+          CF_WORKFLOW_URL: "lllll"
           GITHUB_WORKFLOW_NAME: "${GITHUB_REPOSITORY_OWNER}/${GITHUB_REPOSITORY}/${GITHUB_RUN_ID}"
 #                     export CF_WORKFLOW_URL="${CF_WORKFLOW_URL:-$test}"
 #           export CF_WORKFLOW_NAME="${CF_WORKFLOW_NAME:-$GITHUB_WORKFLOW_NAME}"
