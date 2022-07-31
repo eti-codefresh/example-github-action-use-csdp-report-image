@@ -35,7 +35,8 @@ jobs:
           export CF_WORKFLOW_URL="${CF_WORKFLOW_URL:-$GITHUB_WORKFLOW_URL}"
           export CF_WORKFLOW_NAME="${CF_WORKFLOW_NAME:-$GITHUB_WORKFLOW_NAME}"
           echo "${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
-          echo "${CF_WORKFLOW_URL:-${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}}"
+          export test= "${CF_WORKFLOW_URL:-${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}}"
+          echo $test
           
 #       - name: report image
 #         with:
