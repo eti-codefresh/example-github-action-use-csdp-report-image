@@ -31,12 +31,12 @@ jobs:
           GITHUB_PAYLOAD_MESSAGE: "${{ github.event.client_payload.message }}"
           GITHUB_WORKFLOW_URL: "${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
           GITHUB_WORKFLOW_NAME: "${GITHUB_REPOSITORY_OWNER}/${GITHUB_REPOSITORY}/${GITHUB_RUN_ID}"
+#                     export CF_WORKFLOW_URL="${CF_WORKFLOW_URL:-$test}"
+#           export CF_WORKFLOW_NAME="${CF_WORKFLOW_NAME:-$GITHUB_WORKFLOW_NAME}"
+#           echo "${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
         run: |
-          export test= "${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
-          export CF_WORKFLOW_URL="${CF_WORKFLOW_URL:-$test}"
-          export CF_WORKFLOW_NAME="${CF_WORKFLOW_NAME:-$GITHUB_WORKFLOW_NAME}"
-          echo "${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
-        
+          export test="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
+
           echo $test
           
 #       - name: report image
