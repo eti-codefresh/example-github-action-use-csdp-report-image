@@ -39,7 +39,7 @@ jobs:
           export CF_WORKFLOW_URL="${CF_WORKFLOW_URL:-$test}"
           echo $test
           echo $CF_WORKFLOW_URL
-          
+      
 #       - name: report image
 #         with:
 #           # Name of runtime to implement the enrichment
