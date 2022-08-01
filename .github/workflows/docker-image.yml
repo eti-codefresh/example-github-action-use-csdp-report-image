@@ -1,12 +1,10 @@
 name: Docker Image CI
 
-# on:
-#   push:
-#     branches: [ main ]
-#   pull_request:
-#     branches: [ main ]
 on:
-  [pull_request, push]
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
 jobs:
   build:
     environment:
@@ -24,53 +22,42 @@ jobs:
       - name: Build & push the Docker image
         env:
           CF_IMAGE: 'quay.io/${{ secrets.DOCKERQUAY_USERNAME }}/denis:10.0.0'
-          GITHUB_REF_NAME: "${{ github.ref_name }}"
-          GITHUB_REPOSITORY: "${{ github.repository }}"
-          GITHUB_REPOSITORY_OWNER: "${{ github.repository_owner }}"
-          GITHUB_COMMIT_MESSAGE: "${{ github.event.head_commit.message }}"
-          GITHUB_PAYLOAD_MESSAGE: "${{ github.event.client_payload.message }}"
-          GITHUB_WORKFLOW_NAME: "${{ github.repository }}/${{ github.run_id }}"
-          GITHUB_WORKFLOW_URL: "${{ github.server_url	}}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
-
         run: |
-          export CF_WORKFLOW_URL="${CF_WORKFLOW_URL:-$GITHUB_WORKFLOW_URL}"
-          echo $CF_WORKFLOW_URL
-          export CF_WORKFLOW_NAME="${CF_WORKFLOW_NAME:-$GITHUB_WORKFLOW_NAME}"
-          echo $CF_WORKFLOW_NAME
-      
-#       - name: report image
-#         with:
-#           # Name of runtime to implement the enrichment
-# #           CF_HOST: 'https://mr-60c7443e37ca2730b9757992-e4c9118.cf-cd.com'
+          docker build . --file Dockerfile --tag $CF_IMAGE && docker push $CF_IMAGE
+          
+          
+      - name: report image
+        with:
+          # Name of runtime to implement the enrichment
+#           CF_HOST: 'https://mr-60c7443e37ca2730b9757992-e4c9118.cf-cd.com'
 
-#           CF_RUNTIME_NAME: 'codefresh-hosted'
-#           # Codefresh API key !! Committing a plain text token is a security risk. We highly recommend using an encrypted secrets. !!
-#           # Documentation - https://docs.github.com/en/actions/security-guides/encrypted-secrets
+          CF_RUNTIME_NAME: 'codefresh-hosted'
+          # Codefresh API key !! Committing a plain text token is a security risk. We highly recommend using an encrypted secrets. !!
+          # Documentation - https://docs.github.com/en/actions/security-guides/encrypted-secrets
         
-#           CF_API_KEY: ${{ secrets.CF_API_KEY }}
-#           # Name of Container registry integration
-#           CF_CONTAINER_REGISTRY_INTEGRATION: 'hosted-quay-new'
+          CF_API_KEY: ${{ secrets.CF_API_KEY }}
+          # Name of Container registry integration
+          CF_CONTAINER_REGISTRY_INTEGRATION: 'hosted-quay-new'
 
-#           # Name of Jira integration
-#           CF_JIRA_INTEGRATION: 'eti-jira-new'
+          # Name of Jira integration
+          CF_JIRA_INTEGRATION: 'eti-jira-new'
 
-#           # Image path to enrich
-#           CF_IMAGE: 'quay.io/${{ secrets.DOCKERQUAY_USERNAME }}/denis:10.0.0'
+          # Image path to enrich
+          CF_IMAGE: 'quay.io/${{ secrets.DOCKERQUAY_USERNAME }}/denis:10.0.0'
 
-#           # GitHub Access token !! Committing a plain text token is a security risk. We highly recommend using an encrypted secrets. !!
-#           # Documentation - https://docs.github.com/en/actions/security-guides/encrypted-secrets
-#           CF_GITHUB_TOKEN: ${{ secrets.G_TOKEN }}
+          # GitHub Access token !! Committing a plain text token is a security risk. We highly recommend using an encrypted secrets. !!
+          # Documentation - https://docs.github.com/en/actions/security-guides/encrypted-secrets
+          CF_GITHUB_TOKEN: ${{ secrets.G_TOKEN }}
 
-#           # Jira project filter
-#           CF_JIRA_PROJECT_PREFIX: "CR"
+          # Jira project filter
+          CF_JIRA_PROJECT_PREFIX: "CR"
 
-#           # String starting with the issue ID to associate with image
-#           CF_JIRA_MESSAGE: "CR-11028"
+          # String starting with the issue ID to associate with image
+          CF_JIRA_MESSAGE: "CR-11028"
           
-# #           CF_WORKFLOW_NAME: "test"
+#           CF_WORKFLOW_NAME: "test"
 
-# #         uses: codefresh-io/codefresh-report-image@latest
-#         uses: eti-codefresh/codefresh-report-image@test6
+#         uses: codefresh-io/codefresh-report-image@latest
+        uses: eti-codefresh/codefresh-report-image@test6
           
-
 
