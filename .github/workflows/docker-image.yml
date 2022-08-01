@@ -36,7 +36,7 @@ jobs:
           export CF_WORKFLOW_URL="${CF_WORKFLOW_URL:-$GITHUB_WORKFLOW_URL}"
           echo $CF_WORKFLOW_URL
           export CF_WORKFLOW_NAME="${CF_WORKFLOW_NAME:-$GITHUB_WORKFLOW_NAME}"
-          echo $CF_WORKFLOW__NAME
+          echo $CF_WORKFLOW_NAME
       
 #       - name: report image
 #         with:
