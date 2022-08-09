@@ -54,11 +54,11 @@ jobs:
           # Documentation - https://docs.github.com/en/actions/security-guides/encrypted-secrets
           CF_GITHUB_TOKEN: ${{ secrets.G_TOKEN }}
 
-          # Jira project filter
-          CF_JIRA_PROJECT_PREFIX: "CR"
+#           # Jira project filter
+#           CF_JIRA_PROJECT_PREFIX: "CR"
 
-          # String starting with the issue ID to associate with image
-          CF_JIRA_MESSAGE: "CR-11028"
+#           # String starting with the issue ID to associate with image
+#           CF_JIRA_MESSAGE: "CR-11028"
           
 #           CF_WORKFLOW_NAME: "test"
 
