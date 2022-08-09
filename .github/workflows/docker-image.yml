@@ -32,11 +32,11 @@ jobs:
           # Name of runtime to implement the enrichment
 #           CF_HOST: 'https://mr-60c7443e37ca2730b9757992-e4c9118.cf-cd.com'
 
-          CF_RUNTIME_NAME: 'codefresh-hosted'
+          CF_RUNTIME_NAME: 'local-08-08-2022'
           # Codefresh API key !! Committing a plain text token is a security risk. We highly recommend using an encrypted secrets. !!
           # Documentation - https://docs.github.com/en/actions/security-guides/encrypted-secrets
         
-          CF_API_KEY: ${{ secrets.CF_API_KEY }}
+          CF_API_KEY: ${{ secrets.CF_API_KEY_LOCAL }}
 #           CF_API_KEY: "123"
           # Name of Container registry integration
 #           CF_CONTAINER_REGISTRY_INTEGRATION: 'hosted-quay-new'
