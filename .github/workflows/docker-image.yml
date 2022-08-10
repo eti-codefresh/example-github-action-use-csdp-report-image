@@ -30,7 +30,7 @@ jobs:
       - name: report image
         with:
           # Name of runtime to implement the enrichment
-          CF_HOST: 'https://5f4c-82-166-77-149.eu.ngrok.io'
+          CF_HOST: https://eti-demo.pipeline-team.cf-cd.com
 
 #           CF_RUNTIME_NAME: 'local-08-08-2022'
           # Codefresh API key !! Committing a plain text token is a security risk. We highly recommend using an encrypted secrets. !!
