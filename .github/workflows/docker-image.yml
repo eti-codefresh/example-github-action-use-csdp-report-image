@@ -16,10 +16,9 @@ jobs:
       - name: Login to DockerHub
         uses: docker/login-action@v2
         with:
-          registry: 'ghcr.io'
-#           username: ${{ github.actor }}
-          username: 'ffff'
-          password: ${{ secrets.GITHUB_TOKEN }}
+          registry: codefreshtest.jfrog.io
+          username: ${{ secrets.JFROG_USER_NAME }}
+          password: ${{ secrets.JFROG_PASSWORD }}
       - name: Build & push the Docker image
         env:
           CF_IMAGE: 'ghcr.io/${{ github.actor }}/test:10.0.0'
