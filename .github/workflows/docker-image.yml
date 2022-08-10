@@ -38,11 +38,13 @@ jobs:
           CF_API_KEY: ${{ secrets.CF_API_KEY }}
 #           CF_API_KEY: "123"
           # Name of Container registry integration
-          CF_CONTAINER_REGISTRY_INTEGRATION: 'ghcr-eti'
+#           CF_CONTAINER_REGISTRY_INTEGRATION: 'ghcr-eti'
 #           CF_REGISTRY_USERNAME: "${{ github.actor }}"
 #           CF_REGISTRY_PASSWORD: "${{ secrets.GITHUB_TOKEN }}"
 #           CF_REGISTRY_DOMAIN: "ghcr.io"
-
+          CF_REGISTRY_USERNAME: "${{ secrets.JFROG_USER_NAME }}"
+          CF_REGISTRY_PASSWORD: "${{ secrets.JFROG_PASSWORD }}"
+          CF_REGISTRY_DOMAIN: "codefreshtest.jfrog.io"
           # Name of Jira integration
 #           CF_JIRA_INTEGRATION: 'eti-jira-new'
 
