@@ -18,7 +18,7 @@ jobs:
         with:
           registry: quay.io
           username: eti_zaguri
-          password: ${{ secrets.DOCKERQUAY_USERNAME }}
+          password: etiZAGURI204309041
       - name: Build & push the Docker image
         env:
           CF_IMAGE: quay.io/eti_zaguri/test:10.0.2
