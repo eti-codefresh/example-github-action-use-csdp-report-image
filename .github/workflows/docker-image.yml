@@ -21,7 +21,7 @@ jobs:
           password: "${{ secrets.GITHUB_TOKEN }}"
       - name: Build & push the Docker image
         env:
-          CF_IMAGE: ghcr.io/eti-codefresh/test:10.0.0
+          CF_IMAGE: ghcr.io/eti-codefresh/test:10.1.2
         run: |
           docker build . --file Dockerfile --tag $CF_IMAGE && docker push $CF_IMAGE
           
@@ -49,7 +49,7 @@ jobs:
 #           CF_JIRA_INTEGRATION: 'eti-jira-new'
 
           # Image path to enrich
-          CF_IMAGE: ghcr.io/eti-codefresh/test:10.0.0
+          CF_IMAGE: ghcr.io/eti-codefresh/test:10.1.2
 
           # GitHub Access token !! Committing a plain text token is a security risk. We highly recommend using an encrypted secrets. !!
           # Documentation - https://docs.github.com/en/actions/security-guides/encrypted-secrets
