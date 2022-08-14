@@ -16,12 +16,12 @@ jobs:
       - name: Login to DockerHub
         uses: docker/login-action@v2
         with:
-          registry: codefresheti.jfrog.io
-          username: eti.bitbucket@gmail.com
-          password: ${{ secrets.JFROG_PASSWORD_eti }}
+          registry: quay.io
+          username: eti_zaguri
+          password: ${{ secrets.DOCKERQUAY_USERNAME }}
       - name: Build & push the Docker image
         env:
-          CF_IMAGE: codefresheti.jfrog.io/default-docker/eti:10.0.2
+          CF_IMAGE: quay.io/eti_zaguri/test:10.0.2
         run: |
           docker build . --file Dockerfile --tag $CF_IMAGE && docker push $CF_IMAGE
           
@@ -38,7 +38,7 @@ jobs:
           CF_API_KEY: ${{ secrets.CF_API_KEY }}
 #           CF_API_KEY: "123"
           # Name of Container registry integration
-          CF_CONTAINER_REGISTRY_INTEGRATION: 'codefresh-eti'
+          CF_CONTAINER_REGISTRY_INTEGRATION: 'quay-valid'
 #           CF_REGISTRY_USERNAME: "${{ github.actor }}"
 #           CF_REGISTRY_PASSWORD: "${{ secrets.GITHUB_TOKEN }}"
 #           CF_REGISTRY_DOMAIN: "ghcr.io"
@@ -49,7 +49,7 @@ jobs:
 #           CF_JIRA_INTEGRATION: 'eti-jira-new'
 
           # Image path to enrich
-          CF_IMAGE: codefresheti.jfrog.io/default-docker/eti:10.0.2
+          CF_IMAGE: quay.io/eti_zaguri/test:10.0.2
 
           # GitHub Access token !! Committing a plain text token is a security risk. We highly recommend using an encrypted secrets. !!
           # Documentation - https://docs.github.com/en/actions/security-guides/encrypted-secrets
