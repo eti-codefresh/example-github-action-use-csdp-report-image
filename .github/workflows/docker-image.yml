@@ -18,7 +18,7 @@ jobs:
         with:
           registry: quay.io
           username: eti_zaguri
-          password: "${{DOCKERQUAY_TOKEN}}"
+          password: "${{secrets.DOCKERQUAY_TOKEN}}"
       - name: Build & push the Docker image
         env:
           CF_IMAGE: quay.io/eti_zaguri/${{ github.event.repository.name }}:10.1.2
@@ -40,7 +40,7 @@ jobs:
           # Name of Container registry integration
 #           CF_CONTAINER_REGISTRY_INTEGRATION: 'quay-valid'
           CF_REGISTRY_USERNAME: eti_zaguri
-          CF_REGISTRY_PASSWORD: "${{DOCKERQUAY_TOKEN}}"
+          CF_REGISTRY_PASSWORD: "${{secrets.DOCKERQUAY_TOKEN}}"
           CF_REGISTRY_DOMAIN: "quay.io"
 #           CF_REGISTRY_USERNAME: "${{ secrets.JFROG_USER_NAME }}"
 #           CF_REGISTRY_PASSWORD: "${{ secrets.JFROG_PASSWORD }}"
