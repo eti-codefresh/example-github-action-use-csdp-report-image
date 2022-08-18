@@ -57,7 +57,6 @@ jobs:
 
 #           # Jira project filter
 #           CF_JIRA_PROJECT_PREFIX: "CR"
-
 #           # String starting with the issue ID to associate with image
 #           CF_JIRA_MESSAGE: "CR-11028"
           
