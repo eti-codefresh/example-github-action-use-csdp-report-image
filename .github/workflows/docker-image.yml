@@ -30,7 +30,6 @@ jobs:
         with:
           # Name of runtime to implement the enrichment
 #           CF_HOST: https://eti-demo.pipeline-team.cf-cd.com
-
 #           CF_RUNTIME_NAME: 'prod-demo-30-06'
           CF_RUNTIME_NAME: 'codefresh-hosted'
           # Codefresh API key !! Committing a plain text token is a security risk. We highly recommend using an encrypted secrets. !!
