@@ -49,7 +49,7 @@ jobs:
 #           CF_JIRA_INTEGRATION: 'eti-jira-new'
 
           # Image path to enrich
-          CF_IMAGE: quay.io/eti_zaguri/${{ github.event.repository.name }}:10.1.5
+          CF_IMAGE: "quay.io/eti_zaguri/${{ github.event.repository.name }}:10.1.5 "
 
           # GitHub Access token !! Committing a plain text token is a security risk. We highly recommend using an encrypted secrets. !!
           # Documentation - https://docs.github.com/en/actions/security-guides/encrypted-secrets
