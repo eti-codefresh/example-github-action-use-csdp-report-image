@@ -67,4 +67,3 @@ jobs:
         uses: eti-codefresh/codefresh-report-image@support_host_url_2       
 
 
-
