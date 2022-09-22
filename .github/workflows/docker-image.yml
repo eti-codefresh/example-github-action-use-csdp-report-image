@@ -60,7 +60,6 @@ jobs:
 #           CF_JIRA_PROJECT_PREFIX: "CR"
 #           # String starting with the issue ID to associate with image
 #           CF_JIRA_MESSAGE: "CR-11028"
-          
 #           CF_WORKFLOW_NAME: "test"
 #         uses: codefresh-io/codefresh-report-image@latest
 #         uses: codefresh-io/codefresh-report-image@0.0.154
