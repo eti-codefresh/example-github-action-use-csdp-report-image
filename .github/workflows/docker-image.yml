@@ -19,11 +19,11 @@ jobs:
           registry: quay.io
           username: eti_zaguri
           password: "${{secrets.DOCKERQUAY_TOKEN}}"
-      - name: Build & push the Docker image
-        env:
-          CF_IMAGE: quay.io/eti_zaguri/${{ github.event.repository.name }}:10.1.5
-        run: |
-          docker build . --file Dockerfile --tag $CF_IMAGE && docker push $CF_IMAGE
+#       - name: Build & push the Docker image
+#         env:
+#           CF_IMAGE: quay.io/eti_zaguri/${{ github.event.repository.name }}:10.1.5
+#         run: |
+#           docker build . --file Dockerfile --tag $CF_IMAGE && docker push $CF_IMAGE
           
           
       - name: report image
@@ -47,19 +47,21 @@ jobs:
 #           CF_REGISTRY_PASSWORD: "${{ secrets.JFROG_PASSWORD }}"
 #           CF_REGISTRY_DOMAIN: "codefreshtest.jfrog.io"
           # Name of Jira integration
-#           CF_JIRA_INTEGRATION: 'eti-jira-new'
+          CF_JIRA_INTEGRATION: 'etitest3'
 
           # Image path to enrich
-          CF_IMAGE: quay.io/eti_zaguri/${{ github.event.repository.name }}:10.1.5
-
+#           CF_IMAGE: quay.io/eti_zaguri/${{ github.event.repository.name }}:10.1.5
+          CF_IMAGE: 'gcr.io/heptio-images/ks-guestbook-demo:0.1'
+            
           # GitHub Access token !! Committing a plain text token is a security risk. We highly recommend using an encrypted secrets. !!
           # Documentation - https://docs.github.com/en/actions/security-guides/encrypted-secrets
           CF_GITHUB_TOKEN: ${{ secrets.G_TOKEN }}
 
-#           # Jira project filter
-#           CF_JIRA_PROJECT_PREFIX: "CR"
-#           # String starting with the issue ID to associate with image
-#           CF_JIRA_MESSAGE: "CR-11028"
+          # Jira project filter
+          CF_JIRA_PROJECT_PREFIX: "TES"
+          # String starting with the issue ID to associate with image
+          CF_JIRA_MESSAGE: "TES-26"
+          CF_GIT_BRANCH: "TES-26"
 #           CF_WORKFLOW_NAME: "test"
 #         uses: codefresh-io/codefresh-report-image@latest
 #         uses: codefresh-io/codefresh-report-image@0.0.154
